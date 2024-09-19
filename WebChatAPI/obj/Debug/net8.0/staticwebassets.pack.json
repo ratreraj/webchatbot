@@ -1,0 +1,25 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\RAJ\\DotNet\\WebChatAPI\\WebChatAPI\\wwwroot\\responses.json",
+      "PackagePath": "staticwebassets\\responses.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.WebChatAPI.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.WebChatAPI.props",
+      "PackagePath": "build\\WebChatAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.WebChatAPI.props",
+      "PackagePath": "buildMultiTargeting\\WebChatAPI.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.WebChatAPI.props",
+      "PackagePath": "buildTransitive\\WebChatAPI.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

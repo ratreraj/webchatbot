@@ -1,0 +1,39 @@
+{
+  "Version": 1,
+  "Hash": "3197c5ODtF8zMpTGyaj/vonsotTTiSZdCbKCIkt9SXc=",
+  "Source": "WebChatAPI",
+  "BasePath": "_content/WebChatAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "WebChatAPI\\wwwroot",
+      "Source": "WebChatAPI",
+      "ContentRoot": "D:\\RAJ\\DotNet\\WebChatAPI\\WebChatAPI\\wwwroot\\",
+      "BasePath": "_content/WebChatAPI",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\RAJ\\DotNet\\WebChatAPI\\WebChatAPI\\wwwroot\\responses.json",
+      "SourceId": "WebChatAPI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\RAJ\\DotNet\\WebChatAPI\\WebChatAPI\\wwwroot\\",
+      "BasePath": "_content/WebChatAPI",
+      "RelativePath": "responses.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\responses.json"
+    }
+  ]
+}

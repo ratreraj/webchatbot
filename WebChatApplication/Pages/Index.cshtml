@@ -1,0 +1,90 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<h1>Chatbot</h1>
+
+<!-- Chat display area -->
+<div id="chat-box" style="border: 1px solid #ddd; padding: 10px; height: 300px; overflow-y: auto;">
+    <!-- Previous chat messages will be added here -->
+</div>
+
+<!-- Chat input form -->
+<form method="post" id="chat-form">
+    <textarea id="user-input" name="UserInput" placeholder="Ask me something..." rows="4" style="width: 100%;"></textarea>
+    <button type="submit">Send</button>
+</form>
+
+<!-- Buttons for Clear and New Chat -->
+<button id="clear-chat" style="margin-top: 10px;">Clear Chat</button>
+<button id="new-chat" style="margin-top: 10px;">New Chat</button>
+
+<script>
+    const chatBox = document.getElementById('chat-box');
+    const userInputField = document.getElementById('user-input');
+    const chatForm = document.getElementById('chat-form');
+
+    // Function to handle form submission (triggered by either button click or Enter key)
+    async function handleChatSubmission() {
+        let userInput = userInputField.value.trim(); // Get the user's input and trim whitespace
+
+        // Don't send empty messages
+        if (userInput === '') {
+            return;
+        }
+
+        // Clear the input field
+        userInputField.value = '';
+
+        // Add the user's input to the chat box
+        chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+
+        // Make the fetch request to the backend
+        let response = await fetch('http://localhost:5066/api/WebChat/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ UserInput: userInput })
+        });
+
+        let result = await response.json();
+
+        // Add the chatbot's response to the chat box
+        chatBox.innerHTML += `<p><strong>Bot:</strong> ${result.response}</p>`;
+
+        // Scroll to the bottom of the chat box to show the latest message
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    // Listen for form submission via button click
+    chatForm.addEventListener('submit', function (event) {
+        event.preventDefault(); // Prevent page reload
+        handleChatSubmission();
+    });
+
+    // Listen for Enter key press in the textarea (trigger send on Enter)
+    userInputField.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' && !event.shiftKey) { // Check if Enter is pressed and not Shift + Enter
+            event.preventDefault(); // Prevent the default behavior of creating a new line
+            handleChatSubmission(); // Trigger the send action
+        }
+    });
+
+    // Clear Chat Button Functionality
+    document.getElementById('clear-chat').addEventListener('click', function () {
+        // Clear the chat box
+        chatBox.innerHTML = '';
+    });
+
+    // New Chat Button Functionality
+    document.getElementById('new-chat').addEventListener('click', function () {
+        // Clear the chat box and the input field (resetting the chat session)
+        chatBox.innerHTML = '';
+        userInputField.value = '';
+
+        // Optionally, you can reset some backend logic here for a "new chat session"
+        console.log("New chat session started.");
+    });
+</script>
